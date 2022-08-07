@@ -1,10 +1,10 @@
 import './app.scss';
-import Form from './Form';
+import FormikForm from './FormFormik';
 
 function App() {
   return (
     <div className="app">
-        <Form/>
+        <FormikForm/>
     </div>
   );
 }
