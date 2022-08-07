@@ -2,8 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from 'yup'
 
 const YupForm = () => {
-
-    const formik = useFormik({
+const formik = useFormik({
         initialValues: {
             name: '',
             email: '',
