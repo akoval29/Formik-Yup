@@ -68,7 +68,7 @@ const YupForm = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             />
-            {formik.error.amount && formik.touched.amount ? <div className="error">{formik.error.amount}</div> : null}
+            {formik.errors.amount && formik.touched.amount ? <div className="error">{formik.errors.amount}</div> : null}
             
             <label htmlFor="currency">Валюта</label>
             <select
@@ -81,7 +81,7 @@ const YupForm = () => {
                     <option value="USD">USD</option>
                     <option value="UAH">UAH</option>
             </select>
-            {formik.error.currency && formik.touched.currency ? <div className="error">{formik.error.currency}</div> : null}
+            {formik.errors.currency && formik.touched.currency ? <div className="error">{formik.errors.currency}</div> : null}
             
             <label htmlFor="text">Ваше повідомлення</label>
             <textarea 
@@ -91,7 +91,7 @@ const YupForm = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             />
-            {formik.error.text && formik.touched.text ? <div className="error">{formik.error.text}</div> : null}
+            {formik.errors.text && formik.touched.text ? <div className="error">{formik.errors.text}</div> : null}
             
             <label className="checkbox">
                 <input 
@@ -103,7 +103,7 @@ const YupForm = () => {
                 />
                 Погоджуєтесь з політикою конфіденційності?
             </label>
-            {formik.error.terms && formik.touched.terms ? <div className="error">{formik.error.terms}</div> : null}
+            {formik.errors.terms && formik.touched.terms ? <div className="error">{formik.errors.terms}</div> : null}
             
             <button type="submit">Відправити</button>
         </form>
