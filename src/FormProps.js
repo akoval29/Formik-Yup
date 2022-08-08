@@ -43,27 +43,28 @@ const PropsForm = () => {
         }}
         validationSchema = {Yup.object({
             name: Yup.string()
-                    .min(2, 'Минимум 2 символа для заполнения')
-                    .required('Обязательное поле!'),
-            email: Yup.string()
-                    .email('Неправильный email адрес')
-                    .required('Обязательное поле!'),
-            amount: Yup.number()
-                    .required('Сумма обязательна')
-                    .min(5, 'Не менее 5'),
-            currency: Yup.string().required('Выберите валюту'),
+                    .min(3, 'Мінімум 3 символа для заповнення')
+                    .required("Обов'язкове поле"),
+            email: Yup.string() 
+                    .email('Невірна адреса')
+                    .required("Обов'язкове поле"),
+            amount: Yup.number() 
+                    .required("Обов'язкове поле")
+                    .min(5, 'Не менше 5'),
+            currency: Yup.string()
+                    .required('Виберіть валюту'), 
             text: Yup.string()
-                    .min(10, 'Не менее 10 символов'),
+                    .min(10, 'Не менше 10 символів'),
             terms: Yup.boolean()
-                    .required('Необходимо согласие')
-                    .oneOf([true], "Необходимо согласие")
+                    .required("Необхідна згода")
+                    .oneOf([true], 'Необхідно вибір'),
         })}
         onSubmit = {values => console.log(JSON.stringify(values, null, 2))}
         >
             <Form className="form">
-                <h2>Отправить пожертвование</h2>
+                <h2>Донати на ЗСУ</h2>
                 <MyTextInput
-                    label="Ваше имя"
+                    label="Ваше ім'я"
                     id="name"
                     name="name"
                     type="text"
@@ -76,7 +77,7 @@ const PropsForm = () => {
                     type="email"
                     autoComplete="off"
                 />
-                <label htmlFor="amount">Количество</label>
+                <label htmlFor="amount">Кількість</label>
                 <Field
                     id="amount"
                     name="amount"
@@ -90,13 +91,12 @@ const PropsForm = () => {
                     name="currency"
                     as="select"
                     >
-                        <option value="">Выберите валюту</option>
+                        <option value="">Виберіть валюту</option>
                         <option value="USD">USD</option>
                         <option value="UAH">UAH</option>
-                        <option value="RUB">RUB</option>
                 </Field>
                 <ErrorMessage component="div" className="error" name="currency"/>
-                <label htmlFor="text">Ваше сообщение</label>
+                <label htmlFor="text">Ваше повідомлення</label>
                 <Field 
                     id="text"
                     name="text"
@@ -104,9 +104,9 @@ const PropsForm = () => {
                 />
                 <ErrorMessage component="div" className="error" name="text"/>
                 <MyCheckbox name="terms">
-                    Соглашаетесь с политикой конфиденциальности?
+                    Погоджуєтесь з політикою конфіденційності ?
                 </MyCheckbox>
-                <button type="submit">Отправить</button>
+                <button type="submit">Відправити</button>
             </Form>
         </Formik>
     )
